@@ -85,6 +85,8 @@ namespace WMS.Migrations
 
                     b.Property<decimal>("Price");
 
+                    b.Property<int>("Quantity");
+
                     b.Property<int>("Stored_By");
 
                     b.HasKey("Item_Id");

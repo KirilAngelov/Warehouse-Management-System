@@ -51,6 +51,7 @@ namespace WMS.Migrations
                     Date_Added = table.Column<string>(nullable: false),
                     Price = table.Column<decimal>(nullable: false),
                     Expiration_Date = table.Column<string>(nullable: true),
+                    Quantity = table.Column<int>(nullable: false),
                     Stored_By = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

@@ -9,7 +9,7 @@ using WMS.Data;
 namespace WMS.Migrations
 {
     [DbContext(typeof(WarehouseDBContext))]
-    [Migration("20190324183300_Initial")]
+    [Migration("20190327091849_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -86,6 +86,8 @@ namespace WMS.Migrations
                         .HasMaxLength(20);
 
                     b.Property<decimal>("Price");
+
+                    b.Property<int>("Quantity");
 
                     b.Property<int>("Stored_By");
 

@@ -19,6 +19,8 @@ namespace WMS.Data.Models
         [Required]
         public decimal Price { get; set; }
         public string Expiration_Date { get; set; }
+        [Required]
+        public int Quantity { get; set; }
         [ForeignKey("Employee")]
         public int Stored_By { get; set; }
         public Employee Employee { get; set; }
