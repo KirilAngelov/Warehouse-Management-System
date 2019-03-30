@@ -8,6 +8,7 @@ namespace Skeleton
     {
         public void UpdateItem(int ID,decimal Price,int Quantity)
         {
+           
              //   updates the items' price and quantity by finding it by id
         }
         public void UpdateItem(int ID, decimal Price)

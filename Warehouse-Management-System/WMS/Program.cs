@@ -1,4 +1,5 @@
 ﻿using System;
+using WMS.Business;
 
 namespace WMS
 {
@@ -6,7 +7,7 @@ namespace WMS
     {
         static void Main(string[] args)
         {
-          
+
         }
     }
 }

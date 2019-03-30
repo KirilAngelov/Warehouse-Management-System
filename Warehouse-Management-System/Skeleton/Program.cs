@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Linq;
 namespace Skeleton
 {
     class Program
@@ -10,9 +10,8 @@ namespace Skeleton
 
             //Methods in the EmployeeController class will be sealed so that BossController doesns't 
             //inherent them
-            Console.WriteLine("Hello World!");
-            SuperviserController superviser = new SuperviserController();
-            
+       
+
         }
     }
 }
