@@ -8,6 +8,20 @@ namespace WMS.Data.Models
 {
    public class Employee
     {
+        public Employee()
+        {
+
+        }
+        public Employee(string FirstName, string LastName, int Age, int YearsOfService,
+            decimal Salary, string Position)
+        {
+            this.First_Name = FirstName;
+            this.Last_Name = LastName;
+            this.Age = Age;
+            this.Years_Of_Service = YearsOfService;
+            this.Salary = Salary;
+            this.Position = Position;
+        }
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int Employee_Id { get; set; }

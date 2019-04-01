@@ -6,11 +6,8 @@ namespace Skeleton
     {
         static void Main(string[] args)
         {
-
-
-            //Methods in the EmployeeController class will be sealed so that BossController doesns't 
-            //inherent them
-       
+          
+            
 
         }
     }

@@ -24,14 +24,15 @@ namespace WMS.Business
             if (employee == null)
             {
                 Console.WriteLine("Employee not found!");
-                
+                return null;
+
             }
             else
             {
                 string id = $"{employee.First_Name} {employee.Last_Name}'s Id is: {employee.Employee_Id}";
                 return id;
             }
-            return null;
+            
         }
         public Employee GetEmployee(int Id)
         {
@@ -52,13 +53,14 @@ namespace WMS.Business
             if (employee == null)
             {
                 Console.WriteLine("Employee not found");
+                return "";
             }
             else
             {
                 string firstName = $"Employee with Id equal to {employee.Employee_Id}'s first name is {employee.First_Name}.";
                 return firstName;
             }
-            return "";
+            
             
         }
         public string GetLastName(int Id)
@@ -67,13 +69,14 @@ namespace WMS.Business
             if (employee == null)
             {
                 Console.WriteLine("Employee not found!");
+                return "";
             }
             else
             {
                 string lastName = $"Employee with Id equal to {employee.Employee_Id}'s last name is {employee.Last_Name}.";
                 return lastName;
             }
-            return "";
+            
         }
         public string GetAge(int Id)
         {
@@ -81,13 +84,14 @@ namespace WMS.Business
             if (employee == null)
             {
                 Console.WriteLine("Employee not found!");
+                return "";
             }
             else
             {
                 string age = $"{employee.First_Name} is {employee.Age} years old.";
                 return age;
             }
-            return "";
+            
         }
         public string YearsOfService(int Id)
         {
@@ -95,13 +99,14 @@ namespace WMS.Business
             if (employee == null)
             {
                 Console.WriteLine("Employee not found!");
+                return "";
             }
             else
             {
                 string years = $"{employee.First_Name}'s years of service are: {employee.Years_Of_Service}.";
                 return years;
             }
-            return "";
+            
 
         }
         public string Salary(int Id)
@@ -110,20 +115,22 @@ namespace WMS.Business
             if (employee == null)
             {
                 Console.WriteLine("Employee not found!");
+                return "";
             }
             else
             {
                 string salary = $"{employee.First_Name}'s salary is: {employee.Salary} lv.";
                 return salary;
             }
-            return "";
         }
         public string Position(int Id)
         {
             var employee = this.context.Employees.FirstOrDefault(x => x.Employee_Id == Id);
             if (employee == null)
             {
+
                 Console.WriteLine("Employee not found!");
+                return "";
             }
             else
             {
@@ -131,9 +138,14 @@ namespace WMS.Business
                 
                 return position;
             }
-            return "";
+            
         }
-
+        public string GetItemId(string ItemName)
+        {
+            var item = this.context.Items.FirstOrDefault(x => x.Name_Of_Item == ItemName);
+            string name = item.Name_Of_Item;
+            return name;
+        }
         private void AddItem(Item item)
         {
             this.context.Items.Add(item);
