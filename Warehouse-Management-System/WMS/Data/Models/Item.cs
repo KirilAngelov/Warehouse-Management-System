@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -8,6 +7,25 @@ namespace WMS.Data.Models
 {
    public class Item
     {
+        public Item()
+        {
+
+        }
+        public Item(int id,string name,string dateAdded,string expirationDate,decimal price,int quantity
+            ,int storedBy,Employee employee) 
+
+        {
+            this.Item_Id = id;
+            this.Name_Of_Item = name;
+            this.Date_Added = dateAdded;
+            this.Price = price;
+            this.Expiration_Date = expirationDate;
+            this.Quantity = quantity;
+            this.Stored_By = storedBy;
+            this.Employee = employee;
+        }
+
+
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int Item_Id { get; set; }

@@ -38,5 +38,6 @@ namespace WMS.Data.Models
         [Required]
         public string Position { get; set; }
 
+
     }
 }

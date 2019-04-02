@@ -6,21 +6,14 @@ using WMS.Data.Models;
 
 namespace WMS.Business
 {
-    public class SupervisorController : EmployeeController
+    public class SupervisorController : WorkerController
     {
 
         public SupervisorController()
         {
         }
-        //Принципно съм съгласен да намалим броя на overload-ите на UpdateItem.
-        public void UpdateItem(int Id, decimal Price, int Quantity)
-        {
-            var item = base.context.Items.FirstOrDefault(x => x.Item_Id == Id);
-            item.Price = Price;
-            item.Quantity = Quantity;
-            base.context.SaveChanges();
-        }
-        //To be continued...
+       
+       
         public void Hire(string FirstName, string LastName, int Age, int YearsOfService,
             decimal Salary, string Position)
         {
@@ -28,11 +21,7 @@ namespace WMS.Business
             base.context.Employees.Add(newEmployee);
             base.context.SaveChanges();
         }
-        //Methods that are currently undone and need discussing:
-        //Dzivev below
-
-        //test
-        public void UpdateItem(int ID, decimal Price)
+        public void UpdateItemPrice(int ID, decimal Price)
         {
             var item = base.context.Items.FirstOrDefault(x => x.Item_Id == ID);
             if (!(item == null))
@@ -45,37 +34,20 @@ namespace WMS.Business
                 Console.WriteLine($"There is no item with id {ID}");
             }
         }
-        //test
-        public void UpdateItem(string Name, decimal Price, int Quantity)
+        public void UpdateItemQuantity(int ID, int Quantity)
         {
-            var item = base.context.Items.FirstOrDefault(x => x.Name_Of_Item == Name);
+            var item = base.context.Items.FirstOrDefault(x => x.Item_Id == ID);
             if (!(item == null))
             {
-                item.Price = Price;
                 item.Quantity = Quantity;
                 base.context.SaveChanges();
             }
             else
             {
-                Console.WriteLine($"There is no item with name {Name}");
+                Console.WriteLine($"There is no item with id {ID}");
             }
         }
-        //test
-        public void UpdateItem(string Name, decimal Price)
-        {
-            var item = base.context.Items.FirstOrDefault(x => x.Name_Of_Item == Name);
-            if (!(item == null))
-            { 
-            item.Price = Price;
-            base.context.SaveChanges();
-            }
-            else
-            {
-                Console.WriteLine($"There is no item with name {Name}");
-            }
-        }
-        //test
-       public void SetPosition(int id,string newPosition)
+        public void SetPosition(int id,string newPosition)
         {
             var employee = base.context.Employees.FirstOrDefault(x => x.Employee_Id == id);
             if (!(employee == null))
@@ -104,7 +76,6 @@ namespace WMS.Business
             }
 
         }
-        //test
         public void SetSalary(int id,decimal newSalary)
         {
             var employee = base.context.Employees.FirstOrDefault(x => x.Employee_Id == id);
@@ -119,7 +90,6 @@ namespace WMS.Business
 
             }
         }
-        //test
         public void SetSalary(string FirstName, string LastName,decimal newSalary)
         {
             var employee = base.context.Employees.
@@ -134,11 +104,42 @@ namespace WMS.Business
                 Console.WriteLine($"There is no employee with names {FirstName} {LastName}");
             }
         }
-        /*
-        //needs discussing
-        //public void Fire(int id)
-        //public void Fire(string FirstName,string LastName)
-        */
+        public int? GetId(string FirstName, string LastName)
+        {
+            var employee = this.context.Employees.Where(x => x.First_Name == FirstName && x.Last_Name == LastName)
+               .FirstOrDefault();
+            if (employee == null)
+            {
+                Console.WriteLine("Employee not found!");
+                return null;
+
+            }
+            else
+            {
+                return employee.Employee_Id;
+            }
+
+        }
+        public Employee GetEmployee(int id)
+        {
+            var employee = base.context.Employees.FirstOrDefault(x => x.Employee_Id == id);
+            if (!(employee == null))
+            {
+                return employee;
+            }
+            else
+            {
+                Console.WriteLine("Error 404");
+                return null;
+            }
+        }
+        public void Fire(int id)
+        {
+            Employee employee = base.context.Employees.FirstOrDefault(x => x.Employee_Id == id);
+            base.context.Employees.Remove(employee);
+            base.context.SaveChanges();
+        }
+       
 
     }
 }
