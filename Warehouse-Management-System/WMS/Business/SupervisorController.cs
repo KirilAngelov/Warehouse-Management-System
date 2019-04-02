@@ -139,6 +139,15 @@ namespace WMS.Business
             base.context.Employees.Remove(employee);
             base.context.SaveChanges();
         }
+        public void ListEmployees()
+        {
+            foreach (var employee in base.context.Employees)
+            {
+                Console.WriteLine($"Name: {employee.First_Name} {employee.Last_Name} Age:{employee.Age} " +
+                    $"Experience in years:{employee.Years_Of_Service} Salary: {employee.Salary} Position: {employee.Position}");
+            }
+
+        }
        
 
     }

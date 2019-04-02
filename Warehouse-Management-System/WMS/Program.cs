@@ -11,9 +11,8 @@ namespace WMS
      
             SupervisorController employeeController = new SupervisorController();
 
-
-            employeeController.Fire(1);
-
+            
+            employeeController.ListEmployees();
         }
     }
 }
