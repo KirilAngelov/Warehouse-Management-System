@@ -11,18 +11,17 @@ namespace WMS.Data.Models
         {
 
         }
-        public Item(int id,string name,string dateAdded,string expirationDate,decimal price,int quantity
-            ,int storedBy,Employee employee) 
+        public Item(string name,string dateAdded,decimal price,string expirationDate,int quantity
+            ,int storedBy) 
 
         {
-            this.Item_Id = id;
             this.Name_Of_Item = name;
             this.Date_Added = dateAdded;
             this.Price = price;
             this.Expiration_Date = expirationDate;
             this.Quantity = quantity;
             this.Stored_By = storedBy;
-            this.Employee = employee;
+            
         }
 
 

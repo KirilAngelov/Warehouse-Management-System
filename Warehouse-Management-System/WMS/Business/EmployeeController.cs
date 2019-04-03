@@ -27,6 +27,8 @@ namespace WMS.Business
             var item = base.context.Items.FirstOrDefault(x => x.Name_Of_Item == ItemName);
             if (!(item==null))
             {
+                Console.WriteLine();
+                Console.WriteLine($"{item.Name_Of_Item} has Id: ");
                 return item.Item_Id;
             }
             else
@@ -49,7 +51,22 @@ namespace WMS.Business
                 return employee;
             }
             return null;
-        }  
+        }
+        public int? GetEmployeeId(string fname,string lname)
+        {
+            var employee = this.context.Employees.Where(x => x.First_Name == fname && x.Last_Name == lname)
+              .FirstOrDefault();
+            if (employee == null)
+            {
+                Console.WriteLine("Employee not found!");
+                return null;
+
+            }
+            else
+            {
+                return employee.Employee_Id;
+            }
+        }
         public void AddItem(Item item)
         {
             this.context.Items.Add(item);
@@ -57,7 +74,7 @@ namespace WMS.Business
         }  
         public void RemoveItem(int id)
         {
-            var item = this.context.Items.FirstOrDefault(x => x.Item_Id == id);
+            var item = base.context.Items.FirstOrDefault(x => x.Item_Id == id);
             if (item == null)
             {
                 Console.WriteLine("Item not found!");
@@ -66,6 +83,7 @@ namespace WMS.Business
             {
                 this.context.Items.Remove(item);
                 this.context.SaveChanges();
+                Console.WriteLine("Done!");
             }
 
         }  
@@ -79,6 +97,7 @@ namespace WMS.Business
             else
             {
                 item.Quantity = Quantity;
+                Console.WriteLine("Done");
             }
         }
 

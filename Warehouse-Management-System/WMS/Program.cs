@@ -1,6 +1,7 @@
 ﻿using System;
 using WMS.Business;
 using WMS.Data.Models;
+using WMS.Views;
 
 namespace WMS
 {
@@ -8,11 +9,7 @@ namespace WMS
     {
         static void Main(string[] args)
         {
-     
-            SupervisorController employeeController = new SupervisorController();
-
-            
-            employeeController.ListEmployees();
+            Display display = new Display();
         }
     }
 }
