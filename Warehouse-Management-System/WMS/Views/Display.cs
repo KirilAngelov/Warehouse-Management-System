@@ -134,7 +134,8 @@ namespace WMS.Views
                         default:
                             break;
                     }
-                } while (operation != EmployeeClose);
+                }
+                while (operation != EmployeeClose);
             }
             else if (password=="admin")
             {
@@ -216,28 +217,49 @@ namespace WMS.Views
 
         private void Sell()
         {
-            Console.WriteLine("Super18");
+            Console.WriteLine("Enter the id of the item to sell:");
+            int itemID = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter id of the client:");
+            int clientID = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the quantity to sell:");
+            int quantity = int.Parse(Console.ReadLine());
+            supervisorController.SellItemToClient(itemID, clientID, quantity);
         }
 
         private void AddClient()
         {
-            Console.WriteLine("Super17");
+           // Console.WriteLine("Super17");
+            Console.WriteLine("Enter First Name of client:");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("Enter Last Name of client:");
+            string lastName = Console.ReadLine();
+            supervisorController.AddClient(firstName, lastName, 0, "no");
         }
-
+        //done
         private void GetClient()
         {
-            Console.WriteLine("Super16");
+            // Console.WriteLine("Super16");
+            Console.WriteLine("Input the id of the client you want to get:");
+            int id = int.Parse(Console.ReadLine());
+           string info= supervisorController.GetClient(id);
+            Console.WriteLine(info);
         }
-
+        //done
         private void GetWorkerID()
         {
-            Console.WriteLine("Super12");
-        }
+            Console.WriteLine("Enter first name");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("Enter last name");
+            string lastName = Console.ReadLine();
+           object id= supervisorController.GetId(firstName, lastName);
+            Console.WriteLine(id);
+        }//адхе
 
         private void ListAll()
         {
-            Console.WriteLine("Super15");
-        }
+         //   Console.WriteLine("Super15");
+            supervisorController.ListEmployees();
+        }//done
 
         private void GetWorker()
         {
@@ -256,18 +278,21 @@ namespace WMS.Views
 
         private void Fire()
         {
-            Console.WriteLine("Super14");
+            // Console.WriteLine("Super14");
+            Console.WriteLine("Enter the id of the person you want to fire:");
+            int id = int.Parse(Console.ReadLine());
+            supervisorController.Fire(id);
         }
-
+        //supervisor sets salary
         private void SetSalary()
         {
             Console.WriteLine("Enter the Id of the worker: ");
             int id = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the new position: ");
+            Console.WriteLine("Enter the new salary: ");
             decimal salary = decimal.Parse(Console.ReadLine());
             supervisorController.SetSalary(id,salary);
         }//done
-
+        //supervisor sets the position of an employee
         private void SetPosition()
         {
             Console.WriteLine("Enter the Id of the worker: ");
@@ -276,7 +301,7 @@ namespace WMS.Views
             string position = Console.ReadLine();
             supervisorController.SetPosition(id, position);
         }//done
-
+        //supervisor updates quantity of item
         private void UpdateItemQuantity()
         {
             Console.WriteLine("Enter the Id of the item you want to update: ");
@@ -285,7 +310,7 @@ namespace WMS.Views
             int price = int.Parse(Console.ReadLine());
             supervisorController.UpdateItemQuantity(id,price);
         }//done
-
+        //supervisor updates price of item
         private void UpdateItemPrice()
         {
             Console.WriteLine("Enter the Id of the item you want to update: ");
@@ -294,7 +319,7 @@ namespace WMS.Views
             decimal price = decimal.Parse(Console.ReadLine());
             supervisorController.UpdateItemPrice(id, price);
         }//done
-
+        //supervisor adds new employee
         private void Hire()
         {
             Console.WriteLine("Enter the name of the worker: ");
@@ -312,7 +337,7 @@ namespace WMS.Views
             
             supervisorController.Hire(name,lname,age,years,salary,position);
         }//done
-
+        //Method updates quantity if item from employee
         private void UpdateItem()
         {
             Console.WriteLine("Enter the Id of the item you want to update: ");

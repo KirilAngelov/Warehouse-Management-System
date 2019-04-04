@@ -116,8 +116,12 @@ namespace WMS.Business
         {
             foreach (var employee in base.context.Employees)
             {
-                Console.WriteLine($"Name: {employee.First_Name} {employee.Last_Name} Age:{employee.Age} " +
-                    $"Experience in years:{employee.Years_Of_Service} Salary: {employee.Salary} Position: {employee.Position}");
+                Console.WriteLine($"Name: {employee.First_Name} {employee.Last_Name}");
+                Console.WriteLine($"Age:{employee.Age} ");
+                Console.WriteLine($"Experience in years:{employee.Years_Of_Service}");
+                Console.WriteLine($"Salary: {employee.Salary}");
+                Console.WriteLine($"Position: {employee.Position}");
+                Console.WriteLine();
             }
 
         }
@@ -132,7 +136,7 @@ namespace WMS.Business
             else
             {
                 string info = $"Client Id: {client.Client_Id} Name: {client.First_Name} {client.Last_Name} " +
-               $"Status: {client.Is_VIP}";
+               $"Spent_Money:{client.Spent_Money} Status: {client.Is_VIP}";
                 return info;
             }
         }
@@ -142,20 +146,29 @@ namespace WMS.Business
             base.context.Clients.Add(client);
             base.context.SaveChanges();
         }
-        public void SellItemToClient(int itemId,int clientId,int ItemQuantity)
+        public object SellItemToClient(int itemId,int clientId,int ItemQuantity)
         {
             var item = base.context.Items.FirstOrDefault(x => x.Item_Id == itemId);
             var client = base.context.Clients.FirstOrDefault(x => x.Client_Id == clientId);
-            if (client.Spent_Money>=30000)
+            decimal priceToPay = item.Price * ItemQuantity;
+            if (item.Quantity<ItemQuantity)
+            {
+                Console.WriteLine("There isn't as much quantity as you are asking!");
+                return null;
+            }
+            if (client.Spent_Money >= 30000)
             {
                 client.Is_VIP = "yes";
-                item.Price = item.Price - ((15 * item.Price)/100);
-               
             }
-            client.Spent_Money += item.Price * ItemQuantity;
-            base.context.Items.Remove(item);
+            if (client.Is_VIP=="yes")
+            {
+                priceToPay -= priceToPay * 10 / 100;
+            }
+            client.Spent_Money += priceToPay;
+            item.Quantity -= ItemQuantity;
             base.context.SaveChanges();
-
+            Console.WriteLine("Done!");
+            return null;
 
         }
        
