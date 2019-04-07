@@ -9,7 +9,7 @@ namespace WMS.Views
    public class Display
     {
         private int EmployeeClose = 14;
-        private int SupervisorClose = 19;
+        private int SupervisorClose = 20;
         private EmployeeController employeeController;
         private SupervisorController supervisorController;
         public Display()
@@ -69,7 +69,8 @@ namespace WMS.Views
             Console.WriteLine("16. Get Client");
             Console.WriteLine("17. Add Client");
             Console.WriteLine("18. Sell");
-            Console.WriteLine("19. Exit");
+            Console.WriteLine("19. Display all items");
+            Console.WriteLine("20. Exit");
             Console.WriteLine();
             Console.WriteLine("Enter the number of the operation you want to do.");
         }
@@ -202,6 +203,9 @@ namespace WMS.Views
                         case 18:
                             Sell();
                             break;
+                        case 19:
+                            DisplayAllItems();
+                            break;
                         default:
                             break;
                     }
@@ -213,7 +217,10 @@ namespace WMS.Views
             }
         }
 
-       
+        private void DisplayAllItems()
+        {
+            supervisorController.ListAllItems();
+        }
 
         private void Sell()
         {

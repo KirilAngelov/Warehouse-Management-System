@@ -125,6 +125,19 @@ namespace WMS.Business
             }
 
         }
+        public void ListAllItems()
+        {
+            foreach (var item in context.Items)
+            {
+                Console.WriteLine($"Name: {item.Name_Of_Item}");
+                Console.WriteLine($"Date added: {item.Date_Added}");
+                Console.WriteLine($"Price: {item.Price}");
+                Console.WriteLine($"Expiration date: {item.Expiration_Date}");
+                Console.WriteLine($"The item is stored by " +
+                    $"{this.context.Employees.FirstOrDefault(x=>x.Employee_Id==item.Item_Id).First_Name}"+" "+
+                    $"{this.context.Employees.FirstOrDefault(x => x.Employee_Id == item.Item_Id).Last_Name}");
+            }
+        }
         public string GetClient(int id)
         {
             var client = base.context.Clients.FirstOrDefault(x=>x.Client_Id==id);
