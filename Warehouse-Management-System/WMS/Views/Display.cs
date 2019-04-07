@@ -133,6 +133,7 @@ namespace WMS.Views
                             UpdateItem();
                             break;
                         default:
+                            Console.WriteLine("Invalid operation!");
                             break;
                     }
                 }
@@ -207,6 +208,7 @@ namespace WMS.Views
                             DisplayAllItems();
                             break;
                         default:
+                            Console.WriteLine("Invalid operation!");
                             break;
                     }
                 } while (operationSuper != SupervisorClose);

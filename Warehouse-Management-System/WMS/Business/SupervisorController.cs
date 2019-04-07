@@ -159,32 +159,49 @@ namespace WMS.Business
             base.context.Clients.Add(client);
             base.context.SaveChanges();
         }
-        public object SellItemToClient(int itemId,int clientId,int ItemQuantity)
+        public object SellItemToClient(int itemId, int clientId, int ItemQuantity)
         {
+
             var item = base.context.Items.FirstOrDefault(x => x.Item_Id == itemId);
             var client = base.context.Clients.FirstOrDefault(x => x.Client_Id == clientId);
-            decimal priceToPay = item.Price * ItemQuantity;
-            if (item.Quantity<ItemQuantity)
+
+           
+            if (item != null && client != null)
             {
-                Console.WriteLine("There isn't as much quantity as you are asking!");
+                decimal priceToPay = item.Price * ItemQuantity;
+
+                if (item.Quantity < ItemQuantity)
+                {
+                    Console.WriteLine("There isn't as much quantity as you are asking!");
+                    return null;
+                }
+                if (client.Spent_Money >= 30000)
+                {
+                    client.Is_VIP = "yes";
+                }
+                if (client.Is_VIP == "yes")
+                {
+                    priceToPay -= priceToPay * 10 / 100;
+                }
+                client.Spent_Money += priceToPay;
+                item.Quantity -= ItemQuantity;
+                base.context.SaveChanges();
+                Console.WriteLine("Done!");
                 return null;
-            }
-            if (client.Spent_Money >= 30000)
-            {
-                client.Is_VIP = "yes";
-            }
-            if (client.Is_VIP=="yes")
-            {
-                priceToPay -= priceToPay * 10 / 100;
-            }
-            client.Spent_Money += priceToPay;
-            item.Quantity -= ItemQuantity;
-            base.context.SaveChanges();
-            Console.WriteLine("Done!");
-            return null;
 
+
+            }
+            if (item == null)
+            {
+                Console.WriteLine("Item not found!");
+                return null;
+
+            }
+
+            Console.WriteLine("Client not found!");
+                return null;
+
+            
         }
-       
-
     }
 }
