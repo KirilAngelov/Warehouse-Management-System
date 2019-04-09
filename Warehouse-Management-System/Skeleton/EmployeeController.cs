@@ -6,12 +6,13 @@ namespace Skeleton
 {
    public class EmployeeController
     {
+        //here maybe add a field for the logged supervisor id
+        public int employeeID { get; set; }
         public EmployeeController()
         {
 
         }
-     //   int Id,string FirstName,string LastName,int Age,int YearsOfService,
-       //     decimal Salary,string Position
+     
         public int GetId(string FirstName,string LastName)
         {
             return 0;

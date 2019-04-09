@@ -6,9 +6,11 @@ using WMS.Data.Models;
 
 namespace WMS.Business
 {
+    
+    
     public class SupervisorController : WorkerController
     {
-
+       
         public SupervisorController()
         {
         }
@@ -109,8 +111,16 @@ namespace WMS.Business
         public void Fire(int id)
         {
             Employee employee = base.context.Employees.FirstOrDefault(x => x.Employee_Id == id);
-            base.context.Employees.Remove(employee);
-            base.context.SaveChanges();
+            if (employee == null)
+            {
+                Console.WriteLine("Employee not found!");
+            }
+            else
+            {
+                base.context.Employees.Remove(employee);
+                base.context.SaveChanges();
+                Console.WriteLine("Done!");
+            }
         }
         public void ListEmployees()
         {
