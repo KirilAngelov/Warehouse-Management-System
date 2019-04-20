@@ -48,12 +48,19 @@ namespace Contest
                     cells[i].printCell();
                     counter++;
                 }
-                if (!cells[i].IsEmpty)
+                if (!cells[i].IsEmpty && cells[i].isHit==false)
                 {
                     Console.Write("[S]"); ;
                     counter++;
 
                 }
+                if (!cells[i].IsEmpty && cells[i].isHit == true)
+                {
+                    Console.Write("[X]"); ;
+                    counter++;
+
+                }
+
                 if (counter == 10)
                 {
                     Console.WriteLine();

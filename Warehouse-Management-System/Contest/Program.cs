@@ -6,7 +6,11 @@ namespace Contest
     {
         static void Main(string[] args)
         {
-            FireBoard test = new FireBoard();
+            Board test = new Board();
+            test.printBoard();
+            Player player = new Player();
+            player.Attack(test);
+            Console.WriteLine();
             test.printBoard();
             
         }
