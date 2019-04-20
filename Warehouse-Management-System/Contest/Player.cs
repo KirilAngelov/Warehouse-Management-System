@@ -9,7 +9,7 @@ namespace Contest
         public Board board { get; set; }
         public FireBoard fireBoard { get; set; }
 
-        public void Attack(Board board)
+        public void Attack(FireBoard board)
         {
             Console.WriteLine("Please enter X Coordinate");
             int xCoordinate = int.Parse(Console.ReadLine());

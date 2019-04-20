@@ -6,7 +6,7 @@ namespace Contest
     {
         static void Main(string[] args)
         {
-            Board test = new Board();
+            FireBoard test = new FireBoard();
             test.printBoard();
             Player player = new Player();
             player.Attack(test);
