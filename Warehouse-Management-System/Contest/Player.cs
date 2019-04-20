@@ -8,8 +8,13 @@ namespace Contest
   {
         public Board board { get; set; }
         public Board fireBoard { get; set; }
-
-        public void Attack(Board board)
+        public int Lives { get; set; } = 10;
+        public Player()
+        {
+            board = new Board();
+            fireBoard = new Board();
+        }
+        public string Attack(Board board)
         {
             Console.WriteLine("Please enter X Coordinate");
             int xCoordinate = int.Parse(Console.ReadLine());
@@ -37,16 +42,22 @@ namespace Contest
             if(!board.cells[(xCoordinate - 1) * 10 + yCoordinate-1].isHit && 
                 !board.cells[(xCoordinate - 1) * 10 + yCoordinate - 1].IsEmpty)
             {
-                Console.WriteLine("Hit");
+                
+                Lives = Lives - 1;
                 board.cells[(xCoordinate - 1) * 10 + yCoordinate - 1].isHit = true;
+                Console.WriteLine("Hit");
+                return "Hit";
             }
             //if is not hit and IS empty
             if(!board.cells[(xCoordinate - 1) * 10 + yCoordinate - 1].isHit &&
                 board.cells[(xCoordinate - 1) * 10 + yCoordinate - 1].IsEmpty)
             {
-                Console.WriteLine("Miss");
+              
                 board.cells[(xCoordinate - 1) * 10 + yCoordinate - 1].isHit = true;
+                Console.WriteLine("Miss");
+                return "Miss";
             }
+            return null;
 
         }
 
