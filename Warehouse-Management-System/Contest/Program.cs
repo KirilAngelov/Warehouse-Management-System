@@ -8,7 +8,7 @@ namespace Contest
         {
             Board test = new Board();
             test.printBoard();
-            
+            Console.Clear();
         }
     }
 }
