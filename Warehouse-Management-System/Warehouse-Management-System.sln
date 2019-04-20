@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WMS", "WMS\WMS.csproj", "{6C39C2A2-8F41-4323-ADFF-24447B825D0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skeleton", "Skeleton\Skeleton.csproj", "{C53E4B00-76D2-4047-9854-C979C74181E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skeleton", "Skeleton\Skeleton.csproj", "{C53E4B00-76D2-4047-9854-C979C74181E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contest", "Contest\Contest.csproj", "{16BD25F3-B5E7-4332-AC8D-939C723AA4DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C53E4B00-76D2-4047-9854-C979C74181E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C53E4B00-76D2-4047-9854-C979C74181E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C53E4B00-76D2-4047-9854-C979C74181E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16BD25F3-B5E7-4332-AC8D-939C723AA4DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16BD25F3-B5E7-4332-AC8D-939C723AA4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16BD25F3-B5E7-4332-AC8D-939C723AA4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16BD25F3-B5E7-4332-AC8D-939C723AA4DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

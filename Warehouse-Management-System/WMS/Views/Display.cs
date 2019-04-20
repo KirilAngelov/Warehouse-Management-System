@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WMS.Business;
 using WMS.Data.Models;
@@ -77,12 +78,19 @@ namespace WMS.Views
         private void Input()
         {
             ShowMenu();
-            Console.WriteLine("Welcome!");
-            Console.WriteLine("Please enter your password");
-            string password = Console.ReadLine();
-            if (password=="employee")
+            
+            Console.WriteLine("Please enter your first and last name.");
+            var list = Console.ReadLine().Split(' ').ToArray();
+            var id = supervisorController.GetId(list.First(),list.Last());
+            string position = supervisorController.Position(id);
+           
+            if (position.Contains("Bearer"))
             {
                 int operation = -1;
+                Console.WriteLine("Welcome!");
+                Console.WriteLine();
+                Console.WriteLine($"Your Id is: {id}");
+                Console.WriteLine();
                 do
                 {
                     ShowEmployeeMenu();
@@ -139,9 +147,13 @@ namespace WMS.Views
                 }
                 while (operation != EmployeeClose);
             }
-            else if (password=="admin")
+            else if (position.Contains("Supervisor"))
             {
                 int operationSuper = -1;
+                Console.WriteLine("Welcome!");
+                Console.WriteLine();
+                Console.WriteLine($"Your Id is: {id}");
+                Console.WriteLine();
                 do
                 {
                     ShowSupervisorMenu();
@@ -212,10 +224,6 @@ namespace WMS.Views
                             break;
                     }
                 } while (operationSuper != SupervisorClose);
-            }
-            else
-            {
-                Console.WriteLine("Incorrect password!");
             }
         }
 

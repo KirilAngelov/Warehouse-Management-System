@@ -44,7 +44,7 @@ namespace WMS.Business
             }
 
         }  
-        public string Position(int Id)
+        public string Position(int? Id)
         {
             var employee = this.context.Employees.FirstOrDefault(x => x.Employee_Id == Id);
             if (employee == null)

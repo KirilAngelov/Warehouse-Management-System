@@ -9,6 +9,8 @@ namespace WMS.Business
 {
     public class EmployeeController:WorkerController
     {
+        //not sure how to use this,maybe use it for storing items in the method
+        //public int EmployeeId { get; set; }
         public Item GetItem(int id)
         {
             var item = base.context.Items.FirstOrDefault(x => x.Item_Id == id);
