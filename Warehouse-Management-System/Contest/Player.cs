@@ -7,9 +7,9 @@ namespace Contest
   public class Player
   {
         public Board board { get; set; }
-        public FireBoard fireBoard { get; set; }
+        public Board fireBoard { get; set; }
 
-        public void Attack(FireBoard board)
+        public void Attack(Board board)
         {
             Console.WriteLine("Please enter X Coordinate");
             int xCoordinate = int.Parse(Console.ReadLine());
@@ -48,6 +48,11 @@ namespace Contest
                 board.cells[(xCoordinate - 1) * 10 + yCoordinate - 1].isHit = true;
             }
 
+        }
+
+        public void GetEnemyBoard(Player playerTwo)
+        {
+            this.fireBoard = playerTwo.board;
         }
 
     }
