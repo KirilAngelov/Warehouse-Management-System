@@ -6,9 +6,9 @@ namespace Contest
     {
         static void Main(string[] args)
         {
-            Board test = new Board();
-            test.printBoard();
-            Console.Clear();
+            FireBoard test = new FireBoard();
+            test.printFireBoard();
+            
         }
     }
 }
