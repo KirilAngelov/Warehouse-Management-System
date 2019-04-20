@@ -15,17 +15,17 @@ namespace Contest
             int xCoordinate = int.Parse(Console.ReadLine());
             Console.WriteLine("Please enter Y Coordinate");
             int yCoordinate = int.Parse(Console.ReadLine());
-            if(xCoordinate<1 || xCoordinate > board.size) //validates X
+            while(xCoordinate<1 || xCoordinate > board.size) //validates X
             {
                 Console.WriteLine("X is out of range,please reenter");
                 xCoordinate = int.Parse(Console.ReadLine());
             }
-            if (yCoordinate < 1 || yCoordinate > board.size) //validates Y
+            while (yCoordinate < 1 || yCoordinate > board.size) //validates Y
             {
                 Console.WriteLine("Y is out of range,please reenter");
                 yCoordinate = int.Parse(Console.ReadLine());
             }
-            if (board.cells[(xCoordinate-1)*10+yCoordinate].isHit) //validates not hit
+            if (board.cells[(xCoordinate-1)*10+yCoordinate-1].isHit) //validates not hit
             {
                 Console.WriteLine("The cell is already hit!");
                 Console.WriteLine("Please reenter X");
