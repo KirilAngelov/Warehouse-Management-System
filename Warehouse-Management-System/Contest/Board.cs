@@ -19,14 +19,27 @@ namespace Contest
                 }
             }
         }
+        
         public void printBoard()
         {
+            cells[9].IsEmpty = false;
+            cells[19].IsEmpty = false;
+            cells[29].IsEmpty = false;
+            cells[39].IsEmpty = false;
             int counter = 0;
             for (int i = 0; i < 100; i++)
             {
+                if (cells[i].IsEmpty)
+                {
+                    cells[i].printCell();
+                    counter++;
+                }
+                if (!cells[i].IsEmpty)
+                {
+                    Console.Write("[S]"); ;
+                    counter++;
 
-                cells[i].printCell();
-                counter++;
+                }
                 if (counter == 10)
                 {
                     Console.WriteLine();
