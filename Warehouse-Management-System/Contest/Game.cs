@@ -14,6 +14,8 @@ namespace Contest
             Player1.board.EnterShips();
             Player2 = new Player();
             Player2.board.EnterShips();
+            Player1.GetEnemyBoard(Player2);
+            Player2.GetEnemyBoard(Player1);
         }
         public void StartGame()
         {
@@ -38,11 +40,11 @@ namespace Contest
                     Player1.board.printBoard();
                     Console.WriteLine();
                     Console.WriteLine("Enemy board");
-                    Player2.board.printFireBoard();
+                    Player1.fireBoard.printFireBoard();
 
                     if (Player1.Attack(Player2.board)!="Hit")
                     {
-                        Player1.Attack(Player2.board);
+                        //Player1.Attack(Player2.board);
                         playerOneTurn = !playerOneTurn;
                     }
                         
@@ -54,10 +56,10 @@ namespace Contest
                     Player2.board.printBoard();
                     Console.WriteLine();
                     Console.WriteLine("Enemy board");
-                    Player2.board.printFireBoard();
+                    Player2.fireBoard.printFireBoard();
                     if (Player2.Attack(Player1.board)!="Hit")
                     {
-                        Player2.Attack(Player1.board);
+                        //Player2.Attack(Player1.board);
                         playerOneTurn = true;
                     }
 
