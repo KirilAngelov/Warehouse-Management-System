@@ -35,7 +35,9 @@ namespace Contest
                 }
                 if (playerOneTurn)
                 {
-                    
+                    Console.WriteLine("It;s player 1's turn");
+                    Console.WriteLine();
+                    Console.WriteLine();
                     Console.WriteLine("Your board");
                     Player1.board.printBoard();
                     Console.WriteLine();
@@ -47,10 +49,16 @@ namespace Contest
                         //Player1.Attack(Player2.board);
                         playerOneTurn = !playerOneTurn;
                     }
+                    Console.WriteLine("Press any key to clear console.");
+                    string a = Console.ReadLine();
+                    Console.Clear();
                         
                 }
                 if (!playerOneTurn)
                 {
+                    Console.WriteLine("It's player 2's turn");
+                    Console.WriteLine( );
+                    Console.WriteLine();
                     playerOneTurn = true;
                     Console.WriteLine("Your board");
                     Player2.board.printBoard();
@@ -62,6 +70,9 @@ namespace Contest
                         //Player2.Attack(Player1.board);
                         playerOneTurn = true;
                     }
+                    Console.WriteLine("Press any key to clear console.");
+                    string a = Console.ReadLine();
+                    Console.Clear();
 
                 }
             }
