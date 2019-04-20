@@ -6,7 +6,8 @@ namespace Contest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Колега!");
+            Board test = new Board();
+            test.printBoard();
         }
     }
 }
