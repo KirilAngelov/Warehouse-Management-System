@@ -7,7 +7,7 @@ namespace Contest
         static void Main(string[] args)
         {
             FireBoard test = new FireBoard();
-            test.printFireBoard();
+            test.printBoard();
             
         }
     }

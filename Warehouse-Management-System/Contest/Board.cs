@@ -26,6 +26,20 @@ namespace Contest
             cells[19].IsEmpty = false;
             cells[29].IsEmpty = false;
             cells[39].IsEmpty = false;
+
+            cells[4].IsEmpty = false;
+            cells[14].IsEmpty = false;
+            cells[24].IsEmpty = false;
+            cells[34].IsEmpty = false;
+
+            cells[50].IsEmpty = false;
+            cells[51].IsEmpty = false;
+            cells[52].IsEmpty = false;
+            cells[53].IsEmpty = false;
+            cells[54].IsEmpty = false;
+
+            cells[0].IsEmpty = false;
+            cells[1].IsEmpty = false;
             int counter = 0;
             for (int i = 0; i < 100; i++)
             {
